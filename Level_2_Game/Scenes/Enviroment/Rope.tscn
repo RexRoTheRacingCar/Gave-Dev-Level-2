@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Other/Rope.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Entity/plants/Plant_3.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.222756, 0.634969 ), 0.0, 0.0, 0, 0, Vector2( 0.427885, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.639423, 0.57362 ), 0.0, 0.0, 0, 0, Vector2( 0.863782, 1 ), 0.015951, 0.015951, 0, 0, Vector2( 1, 0 ), -21.055, 0.0, 0, 0 ]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="PhysicsMaterial" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.5, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 0.5, 2.5 )
+
+[node name="Rope" type="Node2D"]
+scale = Vector2( 12, 12 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.180392, 0.529412, 0.333333, 1 )
+position = Vector2( 0, -6.41667 )
+scale = Vector2( 0.00416194, 0.00544747 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="ropeConnect" type="Line2D" parent="."]
+width = 4.0
+width_curve = SubResource( 4 )
+default_color = Color( 0.180392, 0.529412, 0.333333, 1 )
+joint_mode = 1
+
+[node name="base" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="rigid" type="Node2D" parent="base"]
+
+[node name="RigidBody2D1" type="RigidBody2D" parent="base/rigid"]
+collision_layer = 0
+collision_mask = 0
+mass = 0.11
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base/rigid/RigidBody2D1"]
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="base/rigid"]
+position = Vector2( 0, 10 )
+collision_layer = 8
+collision_mask = 0
+mass = 0.11
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base/rigid/RigidBody2D2"]
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="base/rigid"]
+position = Vector2( 0, 20 )
+collision_layer = 8
+collision_mask = 0
+mass = 0.11
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base/rigid/RigidBody2D3"]
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="base/rigid"]
+position = Vector2( 0, 30 )
+collision_layer = 8
+collision_mask = 0
+mass = 0.11
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base/rigid/RigidBody2D4"]
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="base/rigid"]
+position = Vector2( 0, 40 )
+collision_layer = 8
+collision_mask = 0
+mass = 0.11
+physics_material_override = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base/rigid/RigidBody2D5"]
+position = Vector2( 0, 2.5 )
+shape = SubResource( 3 )
+
+[node name="joints" type="Node2D" parent="base"]
+
+[node name="PinJoint2D1" type="PinJoint2D" parent="base/joints"]
+node_a = NodePath("../..")
+node_b = NodePath("../../rigid/RigidBody2D1")
+bias = 0.2
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="base/joints"]
+position = Vector2( 0, 10 )
+node_a = NodePath("../../rigid/RigidBody2D1")
+node_b = NodePath("../../rigid/RigidBody2D2")
+bias = 0.2
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="base/joints"]
+position = Vector2( 0, 20 )
+node_a = NodePath("../../rigid/RigidBody2D2")
+node_b = NodePath("../../rigid/RigidBody2D3")
+bias = 0.2
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="base/joints"]
+position = Vector2( 0, 30 )
+node_a = NodePath("../../rigid/RigidBody2D3")
+node_b = NodePath("../../rigid/RigidBody2D4")
+bias = 0.2
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="base/joints"]
+position = Vector2( 0, 40 )
+node_a = NodePath("../../rigid/RigidBody2D4")
+node_b = NodePath("../../rigid/RigidBody2D5")
+bias = 0.2
+
+[node name="vis" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 12, 12 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+scale = Vector2( 12.0333, 12.0333 )
+process_parent = true
+physics_process_parent = true
+
+[connection signal="screen_entered" from="vis" to="." method="_on_vis_screen_entered"]
+[connection signal="screen_exited" from="vis" to="." method="_on_vis_screen_exited"]

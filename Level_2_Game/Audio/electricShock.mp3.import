@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electricShock.mp3-add8b0a16938acf6413f499872c4afc6.mp3str"
+
+[deps]
+
+source_file="res://Audio/electricShock.mp3"
+dest_files=[ "res://.import/electricShock.mp3-add8b0a16938acf6413f499872c4afc6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

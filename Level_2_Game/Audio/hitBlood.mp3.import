@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hitBlood.mp3-ac4b83a7819720ae0cead2b93dfc8328.mp3str"
+
+[deps]
+
+source_file="res://Audio/hitBlood.mp3"
+dest_files=[ "res://.import/hitBlood.mp3-ac4b83a7819720ae0cead2b93dfc8328.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

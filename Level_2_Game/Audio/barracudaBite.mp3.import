@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/barracudaBite.mp3-5cba15d41807ef44cc1f9dd225e291e6.mp3str"
+
+[deps]
+
+source_file="res://Audio/barracudaBite.mp3"
+dest_files=[ "res://.import/barracudaBite.mp3-5cba15d41807ef44cc1f9dd225e291e6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

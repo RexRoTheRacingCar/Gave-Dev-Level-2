@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jellyfishHit.mp3-cc4cc54459a6f14d51b397fb0197cf06.mp3str"
+
+[deps]
+
+source_file="res://Audio/jellyfishHit.mp3"
+dest_files=[ "res://.import/jellyfishHit.mp3-cc4cc54459a6f14d51b397fb0197cf06.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,215 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/Other/Menu_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Main/Settings_Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Other/Test_Map_World.tres" type="Environment" id=3]
+[ext_resource path="res://Assets/Other/Bubble_Particle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Other/light_use.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Other/Overlay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Other/Water_Shader.jpg" type="Texture" id=7]
+[ext_resource path="res://Assets/Other/Light_Gradient.png" type="Texture" id=8]
+[ext_resource path="res://Other/Game_UI_Theme.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/Other/Title.png" type="Texture" id=10]
+
+[sub_resource type="Gradient" id=7]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.0175439, 0.412281, 0.54386, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 6.24255, 0, 0, Vector2( 0.486641, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -5.25072, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 116.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 200.0
+angular_velocity_random = 1.0
+orbit_velocity = -0.01
+orbit_velocity_random = 1.0
+tangential_accel = 10.0
+tangential_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.02
+scale_random = 0.15
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 14 )
+hue_variation = -0.03
+hue_variation_random = 0.35
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.412281, 0.596491, 1 )
+colors = PoolColorArray( 0.320145, 0.257813, 1, 0, 0.316406, 0.595451, 1, 1, 0.34375, 0.596252, 1, 1, 0, 0.150391, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 0 ), 0.0, 6.24255, 0, 0, Vector2( 0.486641, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -5.25072, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 200.0
+angular_velocity_random = 1.0
+orbit_velocity = -0.01
+orbit_velocity_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.1
+scale_random = 0.1
+scale_curve = SubResource( 2 )
+color = Color( 1, 1, 1, 0.0627451 )
+color_ramp = SubResource( 5 )
+hue_variation = -0.03
+hue_variation_random = 0.35
+
+[sub_resource type="Gradient" id=9]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.363636, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.0137329, 0.0484824, 0.0976563, 1 )
+
+[sub_resource type="GradientTexture2D" id=10]
+gradient = SubResource( 9 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+
+[node name="Menu_Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+script = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="BG2" type="Polygon2D" parent="."]
+self_modulate = Color( 0.247059, 0.396078, 0.843137, 0.0784314 )
+position = Vector2( 960, 540 )
+scale = Vector2( 11.04, 6.62398 )
+z_index = -10
+texture = ExtResource( 7 )
+polygon = PoolVector2Array( 100, 100, 100, -81.382, 100, -100, -100, -100, -100, 100 )
+
+[node name="Overlay" parent="." instance=ExtResource( 6 )]
+
+[node name="Light2D" type="Light2D" parent="Overlay"]
+position = Vector2( 0, -30.6872 )
+rotation = 1.5708
+scale = Vector2( 3.42857, 1.82857 )
+z_index = 1
+texture = ExtResource( 8 )
+energy = 0.75
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -469.0
+margin_right = 960.0
+margin_bottom = 611.0
+rect_pivot_offset = Vector2( 960, 540 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 905.0
+margin_top = 480.0
+margin_right = 1014.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 50, 10 )
+custom_constants/separation = 14
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_right = 109.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer/Control"]
+self_modulate = Color( 0.4, 0.513726, 0.811765, 1 )
+light_mask = 0
+position = Vector2( 59, -106 )
+scale = Vector2( 0.307891, 0.307891 )
+texture = ExtResource( 10 )
+
+[node name="Srt_Btn" type="Button" parent="CenterContainer/VBoxContainer"]
+light_mask = 0
+margin_top = 14.0
+margin_right = 109.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 200, 50 )
+theme = ExtResource( 9 )
+text = "Start Game"
+
+[node name="Set_Btn" type="Button" parent="CenterContainer/VBoxContainer"]
+light_mask = 0
+margin_top = 54.0
+margin_right = 109.0
+margin_bottom = 80.0
+theme = ExtResource( 9 )
+text = " Game Settings "
+
+[node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer"]
+light_mask = 0
+margin_top = 94.0
+margin_right = 109.0
+margin_bottom = 120.0
+theme = ExtResource( 9 )
+text = "Quit Game"
+
+[node name="Settings_Menu" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="BG_Menu" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Particles2D1" type="Particles2D" parent="BG_Menu"]
+position = Vector2( 960, 540 )
+scale = Vector2( 9, 9 )
+z_index = -5
+amount = 180
+lifetime = 4.5
+speed_scale = 0.2
+randomness = 1.0
+process_material = SubResource( 3 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D2" type="Particles2D" parent="BG_Menu"]
+position = Vector2( 960, 540 )
+scale = Vector2( 9, 9 )
+z_index = -5
+amount = 120
+lifetime = 5.0
+speed_scale = 0.15
+randomness = 1.0
+process_material = SubResource( 6 )
+texture = ExtResource( 5 )
+
+[node name="Vignette" type="Sprite" parent="BG_Menu"]
+position = Vector2( 960, 540 )
+scale = Vector2( 30.4063, 17.2813 )
+z_index = 20
+texture = SubResource( 10 )
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Srt_Btn" to="." method="_on_Start_Game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Set_Btn" to="." method="_on_Set_Btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]

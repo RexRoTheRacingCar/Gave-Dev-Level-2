@@ -1,0 +1,33 @@
+[gd_resource type="Environment" format=2]
+
+[resource]
+background_mode = 4
+fog_color = Color( 0.701961, 0.501961, 0.501961, 1 )
+fog_sun_amount = 0.36
+fog_depth_begin = 779.2
+fog_depth_end = 920.5
+fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_max = 1538.5
+tonemap_mode = 3
+tonemap_white = 1.25
+auto_exposure_scale = 0.3
+auto_exposure_min_luma = 0.3
+ssao_radius = 43.63
+ssao_radius2 = 27.9
+dof_blur_far_distance = 0.01
+dof_blur_far_transition = 2.0
+dof_blur_far_amount = 0.13
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_amount = 0.0
+dof_blur_near_quality = 2
+glow_enabled = true
+glow_levels/7 = true
+glow_intensity = 1.25
+glow_strength = 0.76
+glow_bloom = 0.06
+glow_hdr_threshold = 1.5
+glow_bicubic_upscale = true
+glow_high_quality = true
+adjustment_contrast = 8.0

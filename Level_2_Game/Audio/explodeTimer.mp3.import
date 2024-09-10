@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/explodeTimer.mp3-38e45c01b6ef99df6da6b7b857a6b1cc.mp3str"
+
+[deps]
+
+source_file="res://Audio/explodeTimer.mp3"
+dest_files=[ "res://.import/explodeTimer.mp3-38e45c01b6ef99df6da6b7b857a6b1cc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

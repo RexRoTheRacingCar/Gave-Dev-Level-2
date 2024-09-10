@@ -1,0 +1,219 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Other/Settings_Menu.gd" type="Script" id=1]
+[ext_resource path="res://Other/Menu_Stylebox_1.tres" type="StyleBox" id=2]
+[ext_resource path="res://Other/Game_UI_Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Other/Font_Pasting.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.383459, 1 )
+colors = PoolColorArray( 0.227451, 0.67451, 1, 0.219608, 0, 0.460938, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 4 )
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+fill_to = Vector2( 0.85, 0.15 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.156863, 0.545098, 0.733333, 0.258824 )
+skew = Vector2( 2, 0 )
+border_width_left = 100
+border_width_right = 100
+border_color = Color( 0, 0, 0, 0 )
+border_blend = true
+corner_detail = 12
+shadow_color = Color( 0.215686, 0.333333, 0.796078, 0.12549 )
+anti_aliasing_size = 1.0
+
+[node name="Settings_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.00392157, 0, 0.054902, 0.662745 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="Settings_BG" type="Sprite" parent="CenterContainer"]
+position = Vector2( 960, 540 )
+scale = Vector2( 6.5625, 11.4063 )
+texture = SubResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 785.0
+margin_top = 305.0
+margin_right = 1134.0
+margin_bottom = 775.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 12
+
+[node name="Menu_Text" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 349.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 171.5, 7 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "~ Settings Menu ~"
+align = 1
+
+[node name="Spacing_1" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 349.0
+margin_bottom = 34.0
+
+[node name="Info" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 349.0
+margin_bottom = 118.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "- Hover over a setting to see it's description -
+- The fish indicates if a setting is enabled -
+- Audio Volume is only adjustable in game -"
+align = 1
+
+[node name="Spacing_2" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 349.0
+margin_bottom = 130.0
+
+[node name="Title_1" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 349.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "~ Graphics Settings ~"
+align = 1
+
+[node name="Opt_Box" type="CheckBox" parent="CenterContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 349.0
+margin_bottom = 209.0
+hint_tooltip = "When Enabled (Reccomended) -
+Slower game preformance
+Better visual quality
+
+When Disbaled -
+Improves game preformance
+Lower visual quality"
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+text = "Extra Graphical Effects"
+align = 1
+
+[node name="Glow_Box" type="CheckBox" parent="CenterContainer/VBoxContainer"]
+margin_top = 221.0
+margin_right = 349.0
+margin_bottom = 254.0
+hint_tooltip = "When Enabled (Reccomended) -
+Enables post-processing bloom
+
+When Disbaled -
+Disables post-processing bloom"
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+text = "Bloom and Glowing"
+align = 1
+
+[node name="Shake_Box" type="CheckBox" parent="CenterContainer/VBoxContainer"]
+margin_top = 266.0
+margin_right = 349.0
+margin_bottom = 299.0
+hint_tooltip = "When Enabled  -
+Screen shakes a third of the usual amount
+
+When Disbaled - 
+Screen shakes the usual amount"
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+text = "Screen Shake"
+align = 1
+
+[node name="Spacing_3" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 311.0
+margin_right = 349.0
+margin_bottom = 311.0
+
+[node name="Title_2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 323.0
+margin_right = 349.0
+margin_bottom = 345.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "~ Gameplay Settings ~"
+align = 1
+
+[node name="Diff_Slider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+margin_top = 357.0
+margin_right = 349.0
+margin_bottom = 386.0
+hint_tooltip = "Easy Mode - 
+More max oxygen | Oxygen descreases slowly
+Max HP = 15 | Regens when above 75% Oxygen
+Enemies have less HP and are slower
+
+Normal Mode -
+Normal max oxygen| Oxygen descreases normally
+Max HP = 10 | Regens when above 85% Oxygen
+Enemies have normal HP and move at a normally
+
+Hard Mode -
+Less max oxygen |Oxygen descreases fast
+Max HP = 10 | Doesn't regen
+Enemies have more HP and are faster"
+theme = ExtResource( 3 )
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+rounded = true
+tick_count = 3
+ticks_on_borders = true
+
+[node name="Easy - Medium - Hard" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 398.0
+margin_right = 349.0
+margin_bottom = 420.0
+theme = ExtResource( 3 )
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 4 )
+text = "< Easy ~ Medium ~ Hard >"
+align = 1
+
+[node name="Spacing_4" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 432.0
+margin_right = 349.0
+margin_bottom = 432.0
+
+[node name="Quit_Btn" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 444.0
+margin_right = 349.0
+margin_bottom = 470.0
+hint_tooltip = "Closes the Settings Menu
+(Settings are only accessable from the Title Screen)"
+theme = ExtResource( 3 )
+text = "Apply Settings"
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Opt_Box" to="." method="_on_Opt_Box_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Glow_Box" to="." method="_on_Glow_Box_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/Shake_Box" to="." method="_on_Shake_Box_toggled"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/Diff_Slider" to="." method="_on_Diff_Slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit_Btn" to="." method="_on_Quit_Btn_pressed"]

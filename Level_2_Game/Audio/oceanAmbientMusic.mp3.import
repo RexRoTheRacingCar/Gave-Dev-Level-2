@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/oceanAmbientMusic.mp3-30ead22f21c1b5c71407e13042cee11b.mp3str"
+
+[deps]
+
+source_file="res://Audio/oceanAmbientMusic.mp3"
+dest_files=[ "res://.import/oceanAmbientMusic.mp3-30ead22f21c1b5c71407e13042cee11b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

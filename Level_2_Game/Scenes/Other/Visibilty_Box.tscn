@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Visibilty_Box" type="VisibilityNotifier2D"]
+scale = Vector2( 10, 10 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true

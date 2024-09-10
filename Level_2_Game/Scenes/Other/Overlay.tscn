@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Other/Shader.tres" type="Material" id=1]
+[ext_resource path="res://Scripts/Effects/Overlay.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Other/Water_Shader.jpg" type="Texture" id=3]
+
+[node name="Overlay" type="Sprite"]
+light_mask = 3
+material = ExtResource( 1 )
+position = Vector2( 960, 540 )
+scale = Vector2( 8.75, 5.25 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )

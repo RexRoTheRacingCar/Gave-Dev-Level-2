@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/underwaterExplosion.mp3-6318e568d01eff465b21ebb7b726a3c6.mp3str"
+
+[deps]
+
+source_file="res://Audio/underwaterExplosion.mp3"
+dest_files=[ "res://.import/underwaterExplosion.mp3-6318e568d01eff465b21ebb7b726a3c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

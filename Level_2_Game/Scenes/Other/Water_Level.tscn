@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Effects/Sine_Water.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Effects/Water_Wave.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2500, 156.5 )
+
+[node name="Water_Body" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sine_Water2" type="Line2D" parent="."]
+width = 4.0
+default_color = Color( 0, 0.117647, 0.717647, 0.839216 )
+script = ExtResource( 1 )
+
+[node name="Sine_Water1" type="Line2D" parent="."]
+width = 4.0
+default_color = Color( 0, 0.164706, 1, 1 )
+script = ExtResource( 1 )
+
+[node name="Surface_Overide" type="Area2D" parent="."]
+position = Vector2( 0, -25 )
+space_override = 4
+gravity_vec = Vector2( 0, 5 )
+
+[node name="Overide_Collsion" type="CollisionShape2D" parent="Surface_Overide"]
+position = Vector2( 0, -156.5 )
+shape = SubResource( 2 )
+
+[node name="Vis" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -185 )
+scale = Vector2( 373, 19.5 )
+
+[connection signal="viewport_entered" from="Vis" to="." method="_on_Vis_viewport_entered"]
+[connection signal="viewport_exited" from="Vis" to="." method="_on_Vis_viewport_exited"]

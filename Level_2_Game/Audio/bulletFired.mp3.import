@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bulletFired.mp3-19045daf59e75c83a9f20066152c6074.mp3str"
+
+[deps]
+
+source_file="res://Audio/bulletFired.mp3"
+dest_files=[ "res://.import/bulletFired.mp3-19045daf59e75c83a9f20066152c6074.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
